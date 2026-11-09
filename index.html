@@ -13,8 +13,8 @@ const GAS='https://script.google.com/a/s.kansai.soka.ed.jp/macros/s/AKfycbycd6VC
 const up=new URLSearchParams(location.search)
 const path=up.get("path")
 up.delete("path")
-history.replaceState({},"",path+up.toString())
-document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&path='+path+'&'+up.toString().slice(1));
+history.replaceState({},"",path+"?"+up.toString())
+document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&path='+path+'&'+up.toString());
 const OK=/^https:\/\/([\w-]+\.)*(googleusercontent|google)\.com$/;
 addEventListener('message',e=>{
   const d=e.data;if(!d||!OK.test(e.origin))return;

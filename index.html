@@ -10,8 +10,7 @@
 // GASウェブアプリの /exec URL
 const GAS='https://script.google.com/a/s.kansai.soka.ed.jp/macros/s/AKfycbycd6VCPr59P4jwLQVXpb7FElKDnJR80G6M9c1ofYtlmZeiLsfke5vazIC2RHKKwzaqIQ/exec';
 // 「Pagesから開いた」目印を付けてGASへ渡す（GAS側が読み取るとURLから消える）
-const path=location.pathname.endsWith("index.html")?(history.replaceState({},"","./"),location.pathname):location.pathname
-
+const path=new URLSearchParams(location.search).get("path")
 document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&'+path);
 const OK=/^https:\/\/([\w-]+\.)*(googleusercontent|google)\.com$/;
 addEventListener('message',e=>{

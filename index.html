@@ -12,7 +12,7 @@ const GAS='https://script.google.com/a/s.kansai.soka.ed.jp/macros/s/AKfycbycd6VC
 // 「Pagesから開いた」目印を付けてGASへ渡す（GAS側が読み取るとURLから消える）
 const path=new URLSearchParams(location.search).get("path")
 history.replaceState({},"",path)
-document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&'+path);
+document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&path='+path);
 const OK=/^https:\/\/([\w-]+\.)*(googleusercontent|google)\.com$/;
 addEventListener('message',e=>{
   const d=e.data;if(!d||!OK.test(e.origin))return;

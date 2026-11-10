@@ -14,7 +14,7 @@ const up=new URLSearchParams(location.search)
 const path=up.get("path")||""
 up.delete("path")
 history.replaceState({},"",path+(up.size?("?"+up.toString()):""))
-document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&path='+path+'&'+up.toString());
+document.getElementById('f').src=GAS+'?_originIsPUBLIC_BASE_URL=true'+(path==='/'?'':'&path='+path+'&_t='+Date.now()+'&'+up.toString());
 const OK=/^https:\/\/([\w-]+\.)*(googleusercontent|google)\.com$/;
 addEventListener('message',e=>{
   const d=e.data;if(!d||!OK.test(e.origin))return;
